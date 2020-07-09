@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h1 *ngIf="userName">Hallo, {{userName}}!</h1>
+  <h1 *ngIf="!userName">Hallo!</h1>
+
+  <p>
+    <button class="btn btn-primary" (click)="login()">Login</button>
+    &nbsp;
+    <button *ngIf="userName" class="btn btn-primary" (click)="refresh()">Refresh</button>
+    &nbsp;
+    <button *ngIf="userName" class="btn btn-primary" (click)="logout()">Logout</button>
+  </p>
+
+  <ng-container *ngIf="userName">
+    <p>
+      <small>
+        The following tokens are displayed for the purpose
+        of demonstration. Don't do this in production!
+      </small>
+    </p>
+
+    <h2>Id Token</h2>
+    <p>{{idToken}}</p>
+
+    <h2>Access Token</h2>
+    <p>{{accessToken}}</p>
+
+    <h2>Refresh Token</h2>
+    <p>{{refreshToken}}</p>
+
+    <h2>Result from API</h2>
+    <p>{{flightCount}}</p>
+  </ng-container>
+
+</div>
